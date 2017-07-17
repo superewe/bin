@@ -1,0 +1,24 @@
+#Tree
+
+PKG_INSTALL="
+tree \
+stardict \
+emacs \
+openssh-server \
+curl\
+
+
+"
+
+#
+PKG_REMOVE="
+tree
+
+"
+
+apt-get install $PKG_INSTALL && echo "ok"
+
+#apt-get remove $PKG_REMOVE
+
+apt-get autoremove
+

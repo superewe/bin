@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+## 简介
+
+## 开发进展
+# 状态 优先级   功能
+#             输出的结果用特殊颜色字体显示 ：成功：绿色 失败/报错：红色
+#             repo有更新 邮件通知
+#             定时任务
+#      
+
+# 命令行选项
+# 选项  功能
+#      是否下载本地没有的repo
+#      设置通知邮件
+#      保存更新log
+
+## 变量设置
+
+#源码根目录
+#若无设定，使用该脚本所在目录
+SRC_DIR="`pwd`"
+
+#github上库清单
+#REPO_LIST
+
+#repo作者
+REPO_AUTHOR=
+
+#repo名字
+REPO_NAME=
+
+#repo保存目录 格式: repo作者-repo名字
+REPO_DIR=
+
+echo SRC_DIR : ${SRC_DIR};
+
+#repo
+REPO="`ls -d $SRC_DIR/*/`"
+
+echo REPO:  ${REPO}
+
+for src in $REPO ;do
+cd $src
+echo `pwd`
+
+git pull -v
+echo in $src  “ $src git pull Done”
+
+
+done;
